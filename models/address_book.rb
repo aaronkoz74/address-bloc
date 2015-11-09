@@ -58,7 +58,17 @@ class AddressBook
         lower = mid + 1
       end
     end
-    
+
+    return nil
+  end
+
+  # Iterative search AddressBook for a specific entry by name
+  def iterative_search(name)
+
+    entries.each_with_index do |entry, index|
+      return entries[index] if name == entries[index].name
+      end
+
     return nil
   end
 end
