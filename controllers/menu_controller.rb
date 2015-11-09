@@ -16,6 +16,7 @@ class MenuController
     puts "4 - Search for an entry"
     puts "5 - Import entries from a CSV"
     puts "6 - Exit"
+    puts "77 - Delete all entries"
     print "Enter your selection: "
 
     selection = gets.to_i
@@ -45,6 +46,10 @@ class MenuController
     when 6
       puts "Good-bye!"
       exit(0)
+    when 77
+      system "clear"
+      demolish
+      main_menu
 
     else
       system "clear"
@@ -139,6 +144,14 @@ class MenuController
       read_csv
     end
   end
+
+  def demolish
+
+    @address_book.entries.clear
+    system "clear"
+    puts "All entries have been removed"
+  end
+
 
   def entry_submenu(entry)
     puts "n - next entry"
